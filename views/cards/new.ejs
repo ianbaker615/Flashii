@@ -1,0 +1,11 @@
+<% include ../partials/header %>
+
+<h1> Add new card to <%= deck.name %> </h1>
+
+<form action="/decks/<%= deck._id %>/cards" method="POST">
+  <input type="text" name="card[term]" placeholder="term">
+  <input type="text" name="card[definition]" placeholder="definition">
+  <button>Submit</button>
+</form>
+
+<% include ../partials/footer %>

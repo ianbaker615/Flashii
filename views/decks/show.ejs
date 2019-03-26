@@ -1,0 +1,28 @@
+<% include ../partials/header %>
+<h1>Show Template: <%= deck.name %></h1>
+
+<p>Submitted by: <%= deck.author.username %></p>
+<% deck.cards.forEach(function(card){ %>
+    <p>
+        <strong><%= card.term %></strong> - 
+        <%= card.definition %> 
+        <a 
+        href="/decks/<%= deck._id %>/cards/<%= card._id %>/edit">edit
+        </a> 
+
+        <form 
+        action="/decks/<%= deck._id %>/cards/<%= card._id %>?_method=DELETE" 
+        method="POST">
+          <button>delete card</button>
+        </form>
+    </p>
+<% }) %>
+
+<a href="/decks/<%= deck._id %>/edit">edit deck name</a>
+<a href="/decks/<%= deck._id %>/cards/new">add new card</a>
+<form action="/decks/<%= deck._id %>?_method=DELETE" method="POST">
+  <button>delete deck</button>
+</form>
+
+<% include ../partials/footer %>
+

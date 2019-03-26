@@ -1,0 +1,15 @@
+<% include ../partials/header %>
+
+
+<h1>Decks page</h1>
+<a href ="/decks/new">Add a new deck</a>
+<br>
+
+<strong><p>Decks in db -------</p></strong>
+<% decks.forEach(function(deck){ %>
+  <%= deck.name %>
+  <a href="/decks/<%= deck._id %>"> More info</a>
+  <br>
+<% }); %> 
+
+<% include ../partials/footer %>
